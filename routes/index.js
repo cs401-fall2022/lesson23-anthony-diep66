@@ -66,7 +66,6 @@ router.post('/update', (req, res, next) => {
         exit(1);
       }
       console.log("updating " + req.body.blog[0]);
-      console.log("size = " + req.body.blog)
       //let stmt = db.prepare("UPDATE blog SET ? WHERE blog_id = ?;");
       //stmt.run(req.body.blog[0], req.body.blog[1]);
       db.run("UPDATE blog SET blog_txt = $txt WHERE blog_id = $id", {
@@ -96,5 +95,21 @@ router.post('/delete', (req, res, next) => {
   );
 })
 
+router.post('/delete_all', (req, res, next) => {
+  var db = new sqlite3.Database('mydb.sqlite3',
+    sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE,
+    (err) => {
+      if (err) {
+        console.log("Getting error " + err);
+        exit(1);
+      }
+      db.run("DROP TABLE IF EXISTS blog;");
+      db.exec(`create table blog (
+        blog_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        blog_txt text NOT NULL);`);
+      res.redirect('/');
+    }
+  );
+})
 module.exports = router;
       cexports = router;
