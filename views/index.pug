@@ -8,4 +8,7 @@ block content
       | title: 
       input(type='text', name='blog', value='')
       input(type='submit', value='Submit')
-
+  div
+    ul 
+      for txt in data
+        li=txt.blog_id + "  -  " + txt.blog_txt
