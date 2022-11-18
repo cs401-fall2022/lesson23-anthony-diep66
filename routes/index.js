@@ -65,9 +65,14 @@ router.post('/update', (req, res, next) => {
         console.log("Getting error " + err);
         exit(1);
       }
-      console.log("updating " + req.body.blog);
-      //let stmt = db.prepare("UPDATE blog SET (blog_txt) WHERE blog_id = ?;");
-      //stmt.run(req.body.blog);
+      console.log("updating " + req.body.blog[0]);
+      console.log("size = " + req.body.blog)
+      //let stmt = db.prepare("UPDATE blog SET ? WHERE blog_id = ?;");
+      //stmt.run(req.body.blog[0], req.body.blog[1]);
+      db.run("UPDATE blog SET blog_txt = $txt WHERE blog_id = $id", {
+          $txt: req.body.blog[1],
+          $id: req.body.blog[0]
+      });
       //stmt.finalize();
       res.redirect('/');
     }
