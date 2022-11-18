@@ -9,9 +9,18 @@ block content
       input(type='text', name='blog', value='')
       input(type='submit', value='Submit')
     form(action='/update', method='POST')
+      p
       | update:
       input(type='text', name='blog', value='')
+      | to: 
+      input(type='text', name='blog', value='')
       input(type='submit', value='Submit')
+    form(action='delete' method='POST')
+      p 
+      | delete: 
+      input(type='text', name='blog', value='')
+      input(type='submit', value='Submit')
+
   div
     ul 
       for txt in data
