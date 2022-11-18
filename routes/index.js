@@ -55,6 +55,24 @@ router.post('/add', (req, res, next) => {
     }
   );
 })
+
+router.post('/update', (req, res, next) => {
+  var db = new sqlite3.Database('mydb.sqlite3',
+    sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE,
+    (err) => {
+      if (err) {
+        console.log("Getting error " + err);
+        exit(1);
+      }
+      console.log("updating " + req.body.blog);
+      let stmt = db.prepare("UPDATE blog SET (blog_txt) WHERE blog_id = ?;");
+      stmt.run(req.body.blog);
+      stmt.finalize();
+      res.redirect('/');
+    }
+  );
+})
+
 router.post('/delete', (req, res, next) => {
   var db = new sqlite3.Database('mydb.sqlite3',
     sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE,

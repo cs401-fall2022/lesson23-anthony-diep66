@@ -5,7 +5,11 @@ block content
     h1 Blogs
     form(action='/add', method='POST')
      p
-      | title: 
+      | create: 
+      input(type='text', name='blog', value='')
+      input(type='submit', value='Submit')
+    form(action='/update', method='POST')
+      | update:
       input(type='text', name='blog', value='')
       input(type='submit', value='Submit')
   div
