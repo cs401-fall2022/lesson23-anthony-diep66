@@ -27,7 +27,18 @@ block content
       | delete: 
       input(type='text', name='blog', value='')
       input(type='submit', value='Submit')
+    form(action='/goto' method='GET')
+      p 
+      | goto:  
+      input(type='text', name='blog', value='')
+      input(type='submit', value='Submit')
     form(action='delete_all' method='POST')
       p 
-      | delete all (yes, it deletes all):  
+      input(type='submit',value='Delete All')
+    form(action='add_blog', method='POST')
+      p 
+      | add to blog:  
+      input(type='text',name='blog',value='')
+      | type here! 
+      input(type='textfield',name='blog',value='')
       input(type='submit',value='Submit')
