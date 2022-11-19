@@ -3,6 +3,12 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+#display {
+  border-style: solid;
+  border-color: black;
+  height: 300px;
+}
+
 a {
   color: #00B7FF;
 }

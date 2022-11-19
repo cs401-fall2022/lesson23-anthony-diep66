@@ -3,6 +3,13 @@ extends layout
 block content
   div 
     h1 Blogs
+
+  div#display
+    ul 
+      for txt in data
+        li=txt.blog_id + "  -  " + txt.blog_txt
+
+  div
     form(action='/add', method='POST')
      p
       | create: 
@@ -24,9 +31,3 @@ block content
       p 
       | delete all (yes, it deletes all):  
       input(type='submit',value='Submit')
-
-
-  div
-    ul 
-      for txt in data
-        li=txt.blog_id + "  -  " + txt.blog_txt
