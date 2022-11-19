@@ -42,3 +42,8 @@ block content
       | type here! 
       input(type='textfield',name='blog',value='')
       input(type='submit',value='Submit')
+    form(action='show_blog', method='GET')
+      p 
+      | show blog: 
+      input(type='text', anem='blog',value='')
+      input(type='submit',value='Submit')

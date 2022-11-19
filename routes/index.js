@@ -128,8 +128,8 @@ router.get('/goto/:id', (req, res, next) => {
           console.log("Getting error " + err);
         }
         res.send(row.blog_content);
-        res.redirect('/goto/'+req.params.id);
       });
+
     }
   );
 })
