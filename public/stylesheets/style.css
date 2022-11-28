@@ -1,8 +1,18 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #7dbd98;
 }
-
+li {
+  font-size: large;
+  font-family:fantasy;
+  color:brown;
+  list-style: none;
+  margin:10px;
+}
+input{
+  margin:5px;
+}
 #display {
   border-style: solid;
   border-color: black;
@@ -11,4 +21,8 @@ body {
 
 a {
   color: #00B7FF;
+}
+
+#writing{
+  flex-direction:column;
 }

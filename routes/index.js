@@ -134,6 +134,21 @@ router.get('/goto/:id', (req, res, next) => {
   );
 })
 
+router.post('/goto', (req, res, next) => {
+  var db = new sqlite3.Database('mydb.sqlite3',
+    sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE,
+    (err) => {
+      if (err) {
+        console.log("Getting error " + err);
+        exit(1);
+      }
+      console.log("inserting " + req.body.blog);
+      console.log('/goto/' + req.body.blog);
+      res.redirect('/goto/' + req.body.blog);
+    }
+  );
+})
+
 router.post('/add_blog', (req, res, next) => {
   var db = new sqlite3.Database('mydb.sqlite3',
     sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE,

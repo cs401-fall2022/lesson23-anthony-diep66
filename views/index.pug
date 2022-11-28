@@ -27,7 +27,7 @@ block content
       | delete: 
       input(type='text', name='blog', value='')
       input(type='submit', value='Submit')
-    form(action='/goto' method='GET')
+    form(action='/goto' method='POST')
       p 
       | goto:  
       input(type='text', name='blog', value='')
@@ -39,11 +39,6 @@ block content
       p 
       | add to blog:  
       input(type='text',name='blog',value='')
-      | type here! 
-      input(type='textfield',name='blog',value='')
-      input(type='submit',value='Submit')
-    form(action='show_blog', method='GET')
-      p 
-      | show blog: 
-      input(type='text', anem='blog',value='')
+      div#writing
+      textarea(name='blog',placeholder='type here!',rows='10',cols='100')
       input(type='submit',value='Submit')
